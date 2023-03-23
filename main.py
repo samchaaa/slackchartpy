@@ -14,9 +14,9 @@ import slack_sdk as slack
 SLACK_TOKEN=os.environ['SLACK_TOKEN']
 client = slack.WebClient(token=SLACK_TOKEN)
 
-from flask import Flask
+import flask
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
 @app.route('/', methods=['GET'])
 def home():
 
