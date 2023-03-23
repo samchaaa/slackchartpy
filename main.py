@@ -59,7 +59,7 @@ def home():
     # post to slack
     r2 = client.files_upload(
         channels="#asdf",
-        filename='chart.png',
+        filename=code,
         content=img
     )
 
