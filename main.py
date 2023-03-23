@@ -46,7 +46,7 @@ def home():
         d,
         type="candle",
         style="binance",
-        savefig='{}.png'.format(code),
+        savefig='chart.png',
         xrotation=30,
         fontscale=0.8,
         volume=True,
