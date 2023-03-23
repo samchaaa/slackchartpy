@@ -52,6 +52,12 @@ def home():
         volume=True,
         ylabel=code,
         ylabel_lower='',
+        scale_padding={
+            'left': 0.5,
+            'top': 0.5,
+            'bottom': 0.75,
+            'right': 0.25
+        },
     )
 
     img = open('chart.png'.format(code), 'rb').read()
