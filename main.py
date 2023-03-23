@@ -64,7 +64,7 @@ def home():
 
     # post to slack
     r2 = client.files_upload(
-        channels="#asdf",
+        channels="#slaytors",
         filename=code,
         content=img
     )
