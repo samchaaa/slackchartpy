@@ -12,6 +12,7 @@ import mplfinance as mpl
 import slack_sdk as slack
 
 SLACK_TOKEN=os.environ['SLACK_TOKEN']
+SLACK_CHANNEL=os.environ['SLACK_CHANNEL']
 client = slack.WebClient(token=SLACK_TOKEN)
 
 import flask
@@ -64,7 +65,7 @@ def home():
 
     # post to slack
     r2 = client.files_upload(
-        channels="#slaytors",
+        channels=SLACK_CHANNEL,
         filename=code,
         content=img
     )
