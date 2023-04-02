@@ -5,6 +5,7 @@ import json
 
 import pandas as pd
 from datetime import datetime
+import pytz
 
 # import matplotlib.pyplot as plt
 import mplfinance as mpl
@@ -49,7 +50,11 @@ def home():
     code = flask.request.args['code']
 
     # req data
-    start, end = int(time.time()), int(time.time() - 60 * 1440 * 1) # -1d
+    
+    # start, end = int(time.time()), int(time.time() - 60 * 1440 * 1) # -1d
+    start = int(datetime(au_last.year, au_last.month, au_last.day, 10, 0, tzinfo=pytz.timezone('Australia/Melbourne')).timestamp())
+    end = int(datetime.now(tz=pytz.timezone('Australia/Melbourne')).timestamp())
+    
     url = f"https://au.advfn.com/common/javascript/tradingview/advfn/history?symbol=ASX%5E{code}&resolution=5&v=1&from={start}&to={end}"
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
     r = requests.get(url, headers=headers)
