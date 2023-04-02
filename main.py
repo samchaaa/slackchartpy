@@ -4,6 +4,7 @@ import os
 import json
 
 import pandas as pd
+from pandas.tseries.offsets import BDay
 from datetime import datetime
 import pytz
 
@@ -50,7 +51,7 @@ def home():
     code = flask.request.args['code']
 
     # req data
-    
+    au_last = (datetime.now(tz=pytz.timezone('Australia/Melbourne')) - BDay(1)).date()
     # start, end = int(time.time()), int(time.time() - 60 * 1440 * 1) # -1d
     start = int(datetime(au_last.year, au_last.month, au_last.day, 10, 0, tzinfo=pytz.timezone('Australia/Melbourne')).timestamp())
     end = int(datetime.now(tz=pytz.timezone('Australia/Melbourne')).timestamp())
